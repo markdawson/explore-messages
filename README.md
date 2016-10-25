@@ -4,7 +4,7 @@
 ![Download Facebook Data](/facebookdata.png)
 
 2. You will recieve a zip file called `facebook-<username>`.
-...Unzip that file to create a new folder of the same name: `facebook-<username>`
+   Unzip that file to create a new folder of the same name: `facebook-<username>`
 
 3. Navigate inside that folder.
 
@@ -17,7 +17,7 @@
 
 5. Create a virtualenv running *python 2*
 
-...`virtualenv -p /usr/bin/python2.7 venv`
+   `virtualenv -p /usr/bin/python2.7 venv`
 
 6. Activate it
 
