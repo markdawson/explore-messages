@@ -37,6 +37,14 @@ number_of_messages = soup.find_all('p')
 # 		i += 1
 # 		thread = thread.next_sibling
 
+def help():
+	print('Available commands:')
+	print('people()')
+	print('convosWith(name)')
+	print('messagesWith(name)')
+	print('positiveWith(name)')
+	print('negativeWith(name)')
+
 def people():
 	people = soup.find_all(attrs={"class":"user"})
 	output = Set()
@@ -160,3 +168,4 @@ def emotionWith(name, soup, emotion):
 
 end = time.time()
 print('Processed ' + str(len(number_of_messages)) + ' messages in ' + str(int(end - start)) + ' seconds')
+print('Type help() for a list of commands.')
