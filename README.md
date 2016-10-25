@@ -32,3 +32,5 @@ It will install dependencies.
 |`messagesWith(name)`|input a persons name and view all messages just between you and that person, also creates a new html file with all messages with that person. Note: if there are multiple matches for your input - say two people with the same first name - it will just pick one.
 |`negativeWith(name)`|View negative messages with someone|
 |`positiveWith(name)`|View position message with someone|
+
+9. Run `python -i soup.py` if you exit the python shell and want to re-enter it 
