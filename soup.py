@@ -57,7 +57,7 @@ def convosWith(name,soup=soup):
 def p(text):
 	return "<p>" + str(text) + "</p>"
 
-def vizWith(name,soup=soup):
+def messagesWith(name,soup=soup):
 	
 	threads = soup.find_all(attrs={"class":"thread"})
 	convo = None
@@ -69,7 +69,8 @@ def vizWith(name,soup=soup):
 		if len(members_list) == 2 and name in members_list[0]:
 			break
 
-	f = open('helloworld.html','w')
+	filename = 'messagesWith_' + name + '.html'
+	f = open(filename,'w')
 	html_text = "<html><head></head><body><h1>Message Log</h1>"
 				
 	for header in messages:
@@ -98,15 +99,12 @@ def vizWith(name,soup=soup):
 
 	f.write(html_text)
 	f.close()
-	webbrowser.open_new_tab('helloworld.html')
 
 def negativeWith(name, soup=soup, emotion="neg"):
 	return emotionWith(name, soup, emotion)
 	
 
 def emotionWith(name, soup, emotion):
-	
-
 	threads = soup.find_all(attrs={"class":"thread"})
 	convo = None
 	for t in threads:
