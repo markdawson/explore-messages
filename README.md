@@ -17,7 +17,7 @@ You should see folders called html, photos, and videos as well as a file called 
 `virtualenv -p /usr/bin/python2.7 venv`
 
 6. Activate it
-`source venv/bin/activate
+`source venv/bin/activate`
 
 7. Now start up the script:
 `source start.sh`
