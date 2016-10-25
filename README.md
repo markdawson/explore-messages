@@ -26,6 +26,7 @@
 7. Now start up the script:
 
    `source start.sh`
+
    It will install dependencies.
 
 8. Now you can use any of the following commands:
@@ -38,4 +39,4 @@
 |`negativeWith(name)`|View negative messages with someone|
 |`positiveWith(name)`|View position message with someone|
 
-9. Run `python -i soup.py` if you exit the python shell and want to re-enter it 
+Run `python -i soup.py` if you exit the python shell and want to re-enter it 
