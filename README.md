@@ -1,7 +1,6 @@
 # Messages Explorer
 
 1. To explore your messages download your Facebook data by going to https://www.facebook.com/settings and exporting your data.
-
 ![Download Facebook Data](/facebookdata.png)
 
 2. You will recieve a zip file called `facebook-<username>`.
@@ -21,9 +20,7 @@ You should see folders called html, photos, and videos as well as a file called 
 `source venv/bin/activate
 
 7. Now start up the script:
-
 `source start.sh`
-
 It will install dependencies.
 
 8. Now you can use any of the following commands:
