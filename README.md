@@ -15,6 +15,10 @@
 
    `git clone https://github.com/markdawson/explore-messages.git`
 
+5. Enter the cloned directory
+
+   `cd explore-messages`
+
 5. Create a virtualenv running *python 2*
 
    `virtualenv -p /usr/bin/python2.7 venv`

@@ -9,7 +9,7 @@ from sets import Set
 start = time.time()
 
 # soup = BeautifulSoup(open("/Users/markdawson/Dev/data-science-python/fb_data/messages.htm"), "html.parser")
-soup = BeautifulSoup(open("html/messages.htm"), "lxml")
+soup = BeautifulSoup(open("../html/messages.htm"), "lxml")
 
 number_of_messages = soup.find_all('p')
 # Only focus right now on 2 person conversations
