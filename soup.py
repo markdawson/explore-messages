@@ -4,13 +4,14 @@ import webbrowser
 import time
 import re
 from vaderSentiment.vaderSentiment import sentiment as vs
+from sets import Set
 
 start = time.time()
 
 # soup = BeautifulSoup(open("/Users/markdawson/Dev/data-science-python/fb_data/messages.htm"), "html.parser")
 soup = BeautifulSoup(open("html/messages.htm"), "lxml")
 
-
+number_of_messages = soup.find_all('p')
 # Only focus right now on 2 person conversations
 
 # def output(soup):
@@ -36,6 +37,18 @@ soup = BeautifulSoup(open("html/messages.htm"), "lxml")
 # 		i += 1
 # 		thread = thread.next_sibling
 
+def people():
+	people = soup.find_all(attrs={"class":"user"})
+	output = Set()
+	for p in people:
+		if p not in output:
+			output.add(p.string)
+
+	for p in output:
+		print(p)
+
+	print('Found messages from ' + str(len(output)) + " people.")
+
 def convosWith(name,soup=soup):
 	"""Get all threads with the name passed in"""
 	
@@ -49,10 +62,11 @@ def convosWith(name,soup=soup):
 		# if len(members_list) == 2 and name in members_list[0]:
 		if name in members_list[0]:
 			convos.append(members.parent)
+			print('')	
 			print(members)
-			print()	
+			print("(Thread started on " + next(ch).find(attrs={"class":"meta"}).string + ")")
 
-	return convos
+	return #convos
 
 def p(text):
 	return "<p>" + str(text) + "</p>"
@@ -102,7 +116,9 @@ def messagesWith(name,soup=soup):
 
 def negativeWith(name, soup=soup, emotion="neg"):
 	return emotionWith(name, soup, emotion)
-	
+
+def positiveWith(name, soup=soup, emotion="pos"):
+	return emotionWith(name, soup, emotion)
 
 def emotionWith(name, soup, emotion):
 	threads = soup.find_all(attrs={"class":"thread"})
@@ -117,7 +133,11 @@ def emotionWith(name, soup, emotion):
 
 	f = open('helloworld.html','w')
 	html_text = "<html><head></head><body><h1>Message Log</h1>"
-				
+	
+	# messages = [m for m in messages]	
+	# # Eventually I'll want to create a list so that I can 
+	# # give context for these messages		
+
 	for header in messages:
 		user = header.find(attrs={"class":"user"})
 		date_text = header.find(attrs={"class":"meta"}).text
@@ -127,17 +147,16 @@ def emotionWith(name, soup, emotion):
 		
 		
 		try:
-			if vs(message.string)['emotion'] > 0.2:
+			if vs(message.string)[emotion] > 0.2:
+				print("----------")
 				print(user.string)
 				print(date_text)
 				print(message.string)
 				print(vs(message.string))
-				print("----------")
 				print('')
 		except:
 			pass
 
 
 end = time.time()
-print()
-print('Execution time: ', end - start)
+print('Processed ' + str(len(number_of_messages)) + ' messages in ' + str(int(end - start)) + ' seconds')
