@@ -8,12 +8,12 @@
 
 3. Navigate inside that folder.
 
-...If you type `ls`
-...You should see folders called html, photos, and videos as well as a file called index.html
+   If you type `ls` 
+   You should see folders called html, photos, and videos as well as a file called index.html
 
 4. Download this repository.
 
-...`git clone https://github.com/markdawson/explore-messages.git`
+   `git clone https://github.com/markdawson/explore-messages.git`
 
 5. Create a virtualenv running *python 2*
 
@@ -21,14 +21,15 @@
 
 6. Activate it
 
-...`source venv/bin/activate`
+   `source venv/bin/activate`
 
 7. Now start up the script:
 
-...`source start.sh`
-...It will install dependencies.
+   `source start.sh`
+   It will install dependencies.
 
 8. Now you can use any of the following commands:
+
 |Command             |Description   |
 |--------------------|--------------|
 |`people()`          |Gives a list of all the people you've had conversations wtih
